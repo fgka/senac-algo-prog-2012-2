@@ -35,6 +35,7 @@ public class PrimeiraAulaTest {
 		double resultado = 0.0;
 		int comparacao = 0;
 		
+		esperado = Double.NaN;
 		resultado = this.obj.somaTotal(valores);
 		comparacao = Double.compare(resultado, esperado);
 		Assert.assertEquals(

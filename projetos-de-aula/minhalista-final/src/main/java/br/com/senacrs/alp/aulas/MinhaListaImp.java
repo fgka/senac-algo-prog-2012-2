@@ -44,19 +44,17 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 	}
 
 	public void prefixar(Tipo valor) {
-		Nodo<Tipo> primeiro = buscarPrimeiroNodo();
-		Nodo<Tipo> novoPrimeiro = new Nodo<Tipo>(valor);
 		
+		Nodo<Tipo> inicio = null;
+		Nodo<Tipo> primeiro = null;
+		Nodo<Tipo> novoPrimeiro = null;
+		
+		inicio = this.inicio;
+		primeiro = inicio.getProximo();
+		novoPrimeiro = new Nodo<Tipo>(valor);		
 		novoPrimeiro.setProximo(primeiro);
+		inicio.setProximo(novoPrimeiro);
 	}
-
-	private Nodo<Tipo> buscarPrimeiroNodo() {
-
-		Nodo<Tipo> resultado = getInicio();
-		
-		return resultado;
-	}
-
 
 	public Tipo buscar(int posicao) {
 		

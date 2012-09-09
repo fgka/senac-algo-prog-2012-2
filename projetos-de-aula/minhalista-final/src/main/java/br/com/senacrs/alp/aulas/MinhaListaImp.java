@@ -68,9 +68,18 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 
 	private void verificarPosicao(int posicao) {
 
-		if (posicao < 0) {
+		if (!posicaoDentroDeLimitesValidos(posicao)) {
 			throw new IndexOutOfBoundsException();
 		}
+	}
+
+	private boolean posicaoDentroDeLimitesValidos(int posicao) {
+		
+		boolean result = false;
+		
+		result = posicao >= 0;
+		
+		return result;
 	}
 
 	public void inserir(int posicao, Tipo valor) {

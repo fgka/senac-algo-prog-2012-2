@@ -116,19 +116,31 @@ public class MinhaListaImpTest {
 		Assert.assertEquals(quantidade, tamanho);
 	}
 
+	@SuppressWarnings("unchecked")
 	private <T> void adicionarElementos(
 			MinhaListaImp<T> obj, 
 			int quantidade) {
-		
+
+		T[] valores = null;
+
+		valores = (T[]) new Object[quantidade];
+		for (int i = 0; i < quantidade; i++) {
+			valores[i] = null;
+		}
+		encadearValores(obj, valores);
+	}
+	
+	private <T> void encadearValores(MinhaListaImp<T> obj, T[] valores) {
+				
 		Nodo<T> ultimoNodo = null;
 		Nodo<T> novoNodo = null;
 		
 		ultimoNodo = buscarNodoSufixo(obj);
-		for (int i = 0; i < quantidade; i++) {
-			novoNodo = new Nodo<T>(null);
+		for (T valor : valores) {
+			novoNodo = new Nodo<T>(valor);
 			ultimoNodo.setProximo(novoNodo);
 			ultimoNodo = novoNodo;
-		}
+		}		
 	}
 
 	@Test

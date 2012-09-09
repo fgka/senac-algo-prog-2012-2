@@ -252,7 +252,27 @@ public class MinhaListaImpTest {
 	}
 
 	@Test
-	public void testRemover() {
-		fail("Not yet implemented");
+	public void testRemoverDevolveValorCorreto() {
+				
+		MinhaListaImp<String> obj = null;
+		int quantidade = 0;
+		int posicao = 0;
+		String esperado = null;
+		String resultado = null;
+		String prefixo = null;
+		
+		prefixo = "string-";
+		quantidade = 10;
+		obj = criarMinhaListaImpDeStringComPrefixo(prefixo, quantidade);
+		posicao = 7;
+		esperado = valorStringPrefixadoParaIndice(prefixo, posicao);
+		resultado = obj.remover(posicao);		
+		Assert.assertEquals(esperado, resultado);
+	}
+
+	@Test
+	public void testRemoverValorRemovido() {
+		
+		fail("falta implementar");
 	}
 }

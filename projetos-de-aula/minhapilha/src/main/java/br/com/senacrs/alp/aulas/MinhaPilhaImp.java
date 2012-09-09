@@ -2,19 +2,23 @@ package br.com.senacrs.alp.aulas;
 
 public class MinhaPilhaImp<T> implements MinhaPilha<T> {
 	
+	private MinhaLista<T> lista = null;
+	
 	public MinhaPilhaImp() {
 		
 		super();
+		
+		lista = new MinhaListaImp<T>();
 	}
 
 	public void push(T valor) {
-		// TODO Auto-generated method stub
-		
+
+		this.lista.prefixar(valor);
 	}
 	
 	protected MinhaLista<T> getMinhaLista() {
 		
-		return null;
+		return this.lista;
 	}
 
 	public T pop() {

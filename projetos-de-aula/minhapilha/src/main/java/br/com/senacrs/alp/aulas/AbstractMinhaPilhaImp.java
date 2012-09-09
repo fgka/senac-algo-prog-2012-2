@@ -4,31 +4,30 @@ import java.util.EmptyStackException;
 
 public abstract class AbstractMinhaPilhaImp<T> implements MinhaPilha<T> {
 
-	private MinhaLista<T> lista = null;
-
 	protected AbstractMinhaPilhaImp() {
 
 		super();
-
-		lista = new MinhaListaImp<T>();
 	}
 
 	public void push(T valor) {
-
-		this.lista.prefixar(valor);
+		
+		MinhaLista<T> lista = null;
+		
+		lista = this.getMinhaLista();
+		lista.prefixar(valor);
 	}
 
-	protected MinhaLista<T> getMinhaLista() {
-
-		return this.lista;
-	}
-
+	protected abstract MinhaLista<T> getMinhaLista();
+	
 	public T pop() {
 
 		T resultado = null;
-
+		
+		MinhaLista<T> lista = null;
+		
+		lista = this.getMinhaLista();
 		try {
-			resultado = this.lista.remover(0);
+			resultado = lista.remover(0);
 		} catch (IndexOutOfBoundsException e) {
 			throw new EmptyStackException();
 		}

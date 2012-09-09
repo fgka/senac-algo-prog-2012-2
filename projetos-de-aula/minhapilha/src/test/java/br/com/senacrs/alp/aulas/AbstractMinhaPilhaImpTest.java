@@ -37,7 +37,16 @@ public class AbstractMinhaPilhaImpTest {
 		
 		AbstractMinhaPilhaImp<T> resultado = null;
 		
-		resultado = new AbstractMinhaPilhaImp<T>(){};
+		resultado = new AbstractMinhaPilhaImp<T>(){
+			
+			private MinhaLista<T> lista = new MinhaListaImp<T>();
+			
+			@Override
+			protected MinhaLista<T> getMinhaLista() {
+
+				return this.lista;
+			}
+		};
 		
 		return resultado;
 	}

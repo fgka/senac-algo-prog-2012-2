@@ -60,26 +60,37 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 		
 		Nodo<Tipo> nodo = null;
 		
-		verificarPosicao(posicao);
+		verificarPosicaoParaBuscar(posicao);
 		nodo = buscarNodo(posicao + 1);
 		
 		return nodo.getValor();
 	}
 
-	private void verificarPosicao(int posicao) {
+	private void verificarPosicaoParaBuscar(int posicao) {
+		
+		int posicaoMaxima = 0;
 
-		if (!posicaoDentroDeLimitesValidos(posicao)) {
+		posicaoMaxima = this.tamanho() - 1;
+		verificarPosicao(posicao, posicaoMaxima);
+	}
+
+	private void verificarPosicao(int posicao, int posicaoMaxima) {
+		
+		boolean posicaoValida = false;
+
+		posicaoValida = posicaoDentroDeLimitesValidos(posicao, posicaoMaxima); 
+		if (!posicaoValida) {
 			throw new IndexOutOfBoundsException();
 		}
 	}
 
-	private boolean posicaoDentroDeLimitesValidos(int posicao) {
+	private boolean posicaoDentroDeLimitesValidos(int posicao, int posicaoMaxima) {
 		
-		boolean result = false;
+		boolean resultado = false;
 		
-		result = posicao >= 0;
+		resultado = (posicao >= 0) && (posicao <= posicaoMaxima);
 		
-		return result;
+		return resultado;
 	}
 
 	public void inserir(int posicao, Tipo valor) {
@@ -88,12 +99,20 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 		Nodo<Tipo> proximo = null;
 		Nodo<Tipo> nodo = null;
 		
-		verificarPosicao(posicao);
+		verificarPosicaoParaInserir(posicao);
 		anterior = buscarNodo(posicao);
 		proximo = anterior.getProximo();
 		nodo = new Nodo<Tipo>(valor);
 		anterior.setProximo(nodo);
 		nodo.setProximo(proximo);		
+	}
+	
+	private void verificarPosicaoParaInserir(int posicao) {
+		
+		int posicaoMaxima = 0;
+
+		posicaoMaxima = this.tamanho() + 1;
+		verificarPosicao(posicao, posicaoMaxima);
 	}
 
 	public Tipo remover(int posicao) {
@@ -102,7 +121,7 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 		Nodo<Tipo> nodo = null;
 		Nodo<Tipo> proximo = null;
 		
-		verificarPosicao(posicao);
+		verificarPosicaoParaBuscar(posicao);
 		anterior = buscarNodo(posicao);
 		nodo = anterior.getProximo();
 		proximo = nodo.getProximo();

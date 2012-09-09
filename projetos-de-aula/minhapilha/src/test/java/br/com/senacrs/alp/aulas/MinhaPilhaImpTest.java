@@ -19,9 +19,9 @@ public class MinhaPilhaImpTest {
 
 	@Test
 	public void testMinhaPilhaImp() {
-		
+
 		MinhaPilhaImp<Object> obj = null;
-		
+
 		try {
 			obj = criarMinhaPilhaImp();
 			Assert.assertNotNull(obj);
@@ -33,15 +33,21 @@ public class MinhaPilhaImpTest {
 	private <T> MinhaPilhaImp<T> criarMinhaPilhaImp() {
 
 		MinhaPilhaImp<T> resultado = null;
-		
+
 		resultado = new MinhaPilhaImp<T>();
-		
+
 		return resultado;
 	}
 
 	@Test
 	public void testGetMinhaLista() {
-		fail("Not yet implemented");
+
+		MinhaPilhaImp<Object> obj = null;
+		MinhaLista<Object> lista = null;
+
+		obj = criarMinhaPilhaImp();
+		lista = obj.getMinhaLista();
+		Assert.assertNotNull(lista);
 	}
 
 }

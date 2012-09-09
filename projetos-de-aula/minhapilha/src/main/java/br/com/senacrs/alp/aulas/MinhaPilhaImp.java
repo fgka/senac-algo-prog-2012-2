@@ -11,6 +11,11 @@ public class MinhaPilhaImp<T> implements MinhaPilha<T> {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	protected MinhaLista<T> getMinhaLista() {
+		
+		return null;
+	}
 
 	public T pop() {
 		// TODO Auto-generated method stub

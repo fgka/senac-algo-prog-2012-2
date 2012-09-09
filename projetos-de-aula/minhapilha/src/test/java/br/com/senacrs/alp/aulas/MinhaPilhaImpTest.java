@@ -32,7 +32,27 @@ public class MinhaPilhaImpTest {
 
 	@Test
 	public void testPush() {
-		fail("Not yet implemented");
+		
+		MinhaPilhaImp<String> obj = null;
+		String valor = null;
+		String valorPosicaoZero = null;
+
+		obj = new MinhaPilhaImp<String>();
+		valor = "valor";
+		obj.push(valor);
+		valorPosicaoZero = consultarValorTopo(obj);
+		Assert.assertEquals(valorPosicaoZero, valor);
+	}
+
+	private <T> T consultarValorTopo(MinhaPilhaImp<T> obj) {
+		
+		T resultado = null;
+		MinhaLista<T> lista = null;
+		
+		lista = obj.getMinhaLista();
+		resultado = lista.buscar(0);
+
+		return resultado;
 	}
 
 	@Test

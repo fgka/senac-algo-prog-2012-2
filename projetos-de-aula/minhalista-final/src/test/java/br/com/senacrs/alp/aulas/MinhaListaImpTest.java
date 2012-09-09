@@ -173,20 +173,6 @@ public class MinhaListaImpTest {
 		}
 	}
 
-	@Test
-	public void testBuscarPosicaoNegativa() {
-		
-		MinhaListaImp<String> obj = null;
-		
-		obj = criarMinhaListaImp();
-		try {
-			obj.buscar(-1);
-			fail();
-		} catch (IndexOutOfBoundsException e) {
-			assertTrue(true);
-		}
-	}
-
 	private MinhaListaImp<String> criarMinhaListaImpDeStringComPrefixo(
 			String prefixo, int quantidade) {
 		
@@ -210,6 +196,20 @@ public class MinhaListaImpTest {
 		resultado = prefixo + String.valueOf(indice);
 		
 		return resultado;
+	}
+
+	@Test
+	public void testBuscarPosicaoNegativa() {
+		
+		MinhaListaImp<String> obj = null;
+		
+		obj = criarMinhaListaImp();
+		try {
+			obj.buscar(-1);
+			fail();
+		} catch (IndexOutOfBoundsException e) {
+			assertTrue(true);
+		}
 	}
 
 	@Test
@@ -274,6 +274,24 @@ public class MinhaListaImpTest {
 		obj.inserir(posicao, valor);
 		resultado = buscarValorEmPosicao(obj, posicao);
 		Assert.assertEquals(valor, resultado);
+	}
+
+	@Test
+	public void testInserirPosicaoNegativa() {
+		
+		MinhaListaImp<String> obj = null;
+		String valor = null;
+		int posicao = 0;
+
+		obj = criarMinhaListaImpDeStringComPrefixo("string-", 10);
+		valor = "novo valor";
+		posicao = -1;
+		try {
+			obj.inserir(posicao, valor);
+			fail();
+		} catch (IndexOutOfBoundsException e) {
+			assertTrue(true);
+		}
 	}
 
 	@Test

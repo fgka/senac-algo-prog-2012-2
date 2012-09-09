@@ -1,4 +1,4 @@
-package br.com.senac.alp.aulas.aula3;
+package br.com.senacrs.alp.aulas.trabalho5;
 
 import static org.junit.Assert.*;
 
@@ -9,6 +9,9 @@ import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import br.com.senacrs.alp.aulas.trabalho5.Funcionario;
+import br.com.senacrs.alp.aulas.trabalho5.FuncionarioFactory;
 
 public class FuncionarioFactoryTest {
 

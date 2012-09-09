@@ -1,4 +1,4 @@
-package br.com.senac.alp.aulas.aula3;
+package br.com.senacrs.alp.aulas.trabalho5;
 
 public interface FuncionarioFactory {
 	

@@ -103,21 +103,6 @@ public class MinhaListaImpTest {
 	}
 
 	@Test
-	public void testBuscar() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testInserir() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testRemover() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testTamanho() {
 		
 		MinhaListaImp<String> obj = null;
@@ -138,12 +123,46 @@ public class MinhaListaImpTest {
 		Nodo<T> ultimoNodo = null;
 		Nodo<T> novoNodo = null;
 		
-		
 		ultimoNodo = buscarNodoSufixo(obj);
 		for (int i = 0; i < quantidade; i++) {
 			novoNodo = new Nodo<T>(null);
 			ultimoNodo.setProximo(novoNodo);
 			ultimoNodo = novoNodo;
 		}
+	}
+
+	@Test
+	public void testBuscar() {
+		
+		MinhaListaImp<String> obj = null;
+		int quantidade = 0;
+		
+		quantidade = 10;		 
+		obj = criarMinhaListaImpDeStringComPrefixo("string-", quantidade);
+		
+		fail("Not yet implemented");
+	}
+
+	private MinhaListaImp<String> criarMinhaListaImpDeStringComPrefixo(
+			String string, int quantidade) {
+		
+		MinhaListaImp<String> resultado = null;
+
+		resultado = criarMinhaListaImp();
+		for (int i = 0; i < quantidade; i++) {
+			//usar adicionar Elementos
+		}
+
+		return resultado;
+	}
+
+	@Test
+	public void testInserir() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testRemover() {
+		fail("Not yet implemented");
 	}
 }

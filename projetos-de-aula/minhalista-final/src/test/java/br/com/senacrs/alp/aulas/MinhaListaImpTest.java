@@ -32,7 +32,39 @@ public class MinhaListaImpTest {
 
 	@Test
 	public void testSufixar() {
-		fail("Not yet implemented");
+		
+		MinhaListaImp<String> obj = null;
+		String sufixo = null;
+		String sufixoReal = null;
+		
+		obj = criarMinhaListaImp();
+		sufixo = "sufixo";
+		obj.sufixar(sufixo);
+		sufixoReal = buscarSufixo(obj);
+		Assert.assertEquals(sufixo, sufixoReal);
+	}
+
+	private <T> MinhaListaImp<T> criarMinhaListaImp() {
+		
+		MinhaListaImp<T> obj = null;
+
+		obj = new MinhaListaImp<T>();
+		
+		return obj;
+	}
+
+	private <T> T buscarSufixo(MinhaListaImp<T> obj) {
+		
+		T resultado = null;
+		Nodo<T> nodo = null;
+
+		nodo = obj.getInicio();
+		while (nodo.getProximo() != null) {
+			nodo = nodo.getProximo();
+		}
+		resultado = nodo.getValor();
+		
+		return resultado;
 	}
 
 	@Test

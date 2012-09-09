@@ -346,4 +346,20 @@ public class MinhaListaImpTest {
 
 		return resultado;
 	}
+
+	@Test
+	public void testRemoverPosicaoNegativa() {
+				
+		MinhaListaImp<String> obj = null;
+		int posicao = 0;
+
+		obj = criarMinhaListaImpDeStringComPrefixo("string-", 10);
+		posicao = -1;
+		try {
+			obj.remover(posicao);
+			fail();
+		} catch (IndexOutOfBoundsException e) {
+			assertTrue(true);
+		}
+	}
 }

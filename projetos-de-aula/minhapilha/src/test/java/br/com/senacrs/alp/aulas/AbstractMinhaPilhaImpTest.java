@@ -10,7 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MinhaPilhaImpTest {
+public class AbstractMinhaPilhaImpTest {
 
 	@Before
 	public void setUp() throws Exception {
@@ -23,7 +23,7 @@ public class MinhaPilhaImpTest {
 	@Test
 	public void testAbstractMinhaPilha() {
 		
-		MinhaPilhaImp<Object> obj = null;
+		AbstractMinhaPilhaImp<Object> obj = null;
 		
 		try {
 			obj = criarMinhaPilha();
@@ -33,11 +33,11 @@ public class MinhaPilhaImpTest {
 		}
 	}
 
-	private <T> MinhaPilhaImp<T> criarMinhaPilha() {
+	private <T> AbstractMinhaPilhaImp<T> criarMinhaPilha() {
 		
-		MinhaPilhaImp<T> resultado = null;
+		AbstractMinhaPilhaImp<T> resultado = null;
 		
-		resultado = new MinhaPilhaImp<T>(){};
+		resultado = new AbstractMinhaPilhaImp<T>(){};
 		
 		return resultado;
 	}
@@ -45,7 +45,7 @@ public class MinhaPilhaImpTest {
 	@Test
 	public void testPush() {
 		
-		MinhaPilhaImp<String> obj = null;
+		AbstractMinhaPilhaImp<String> obj = null;
 		String valor = null;
 		String valorPosicaoZero = null;
 
@@ -56,7 +56,7 @@ public class MinhaPilhaImpTest {
 		Assert.assertEquals(valorPosicaoZero, valor);
 	}
 
-	private <T> T consultarValorTopo(MinhaPilhaImp<T> obj) {
+	private <T> T consultarValorTopo(AbstractMinhaPilhaImp<T> obj) {
 		
 		T resultado = null;
 		MinhaLista<T> lista = null;
@@ -71,7 +71,7 @@ public class MinhaPilhaImpTest {
 	@Test
 	public void testPop() {
 		
-		MinhaPilhaImp<String> obj = null;
+		AbstractMinhaPilhaImp<String> obj = null;
 		String prefixo = null;
 		int quantidade = 0;
 		String resultado = null;
@@ -87,10 +87,10 @@ public class MinhaPilhaImpTest {
 		}
 	}
 
-	private MinhaPilhaImp<String> criarPilhaStringComElementos(String prefixo,
+	private AbstractMinhaPilhaImp<String> criarPilhaStringComElementos(String prefixo,
 			int quantidade) {
 		
-		MinhaPilhaImp<String> resultado = null;
+		AbstractMinhaPilhaImp<String> resultado = null;
 		MinhaLista<String> lista = null;
 		String valor = null;
 		
@@ -116,7 +116,7 @@ public class MinhaPilhaImpTest {
 	@Test
 	public void testPopPilhaVazia() {
 		
-		MinhaPilhaImp<String> obj = null;
+		AbstractMinhaPilhaImp<String> obj = null;
 
 		obj = criarMinhaPilha();
 		try {

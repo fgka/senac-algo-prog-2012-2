@@ -22,8 +22,12 @@ public class MinhaPilhaImp<T> implements MinhaPilha<T> {
 	}
 
 	public T pop() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		T resultado = null;
+		
+		resultado = this.lista.remover(0);
+
+		return resultado;
 	}
 
 }

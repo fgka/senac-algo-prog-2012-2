@@ -1,6 +1,9 @@
 package br.com.senacrs.alp.aulas;
 
 import static org.junit.Assert.*;
+
+import java.util.EmptyStackException;
+
 import junit.framework.Assert;
 
 import org.junit.After;
@@ -101,4 +104,17 @@ public class MinhaPilhaImpTest {
 		return resultado;
 	}
 
+	@Test
+	public void testPopPilhaVazia() {
+		
+		MinhaPilhaImp<String> obj = null;
+
+		obj = new MinhaPilhaImp<String>();
+		try {
+			obj.pop();
+			fail();
+		} catch (EmptyStackException e) {
+			Assert.assertTrue(true);
+		}
+	}
 }

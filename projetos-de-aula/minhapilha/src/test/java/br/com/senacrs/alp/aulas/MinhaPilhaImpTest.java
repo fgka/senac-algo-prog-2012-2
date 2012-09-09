@@ -26,11 +26,20 @@ public class MinhaPilhaImpTest {
 		MinhaPilhaImp<Object> obj = null;
 		
 		try {
-			obj = new MinhaPilhaImp<Object>();
+			obj = criarMinhaPilha();
 			Assert.assertNotNull(obj);
 		} catch (Exception e) {
 			fail("Não deveria lançar exceção");
 		}
+	}
+
+	private <T> MinhaPilhaImp<T> criarMinhaPilha() {
+		
+		MinhaPilhaImp<T> resultado = null;
+		
+		resultado = new MinhaPilhaImp<T>();
+		
+		return resultado;
 	}
 
 	@Test
@@ -40,7 +49,7 @@ public class MinhaPilhaImpTest {
 		String valor = null;
 		String valorPosicaoZero = null;
 
-		obj = new MinhaPilhaImp<String>();
+		obj = criarMinhaPilha();
 		valor = "valor";
 		obj.push(valor);
 		valorPosicaoZero = consultarValorTopo(obj);
@@ -85,7 +94,7 @@ public class MinhaPilhaImpTest {
 		MinhaLista<String> lista = null;
 		String valor = null;
 		
-		resultado = new MinhaPilhaImp<String>();
+		resultado = criarMinhaPilha();
 		lista = resultado.getMinhaLista();
 		for (int i = 0; i < quantidade; i++) {
 			valor = elementoParaIndice(prefixo, i);
@@ -109,7 +118,7 @@ public class MinhaPilhaImpTest {
 		
 		MinhaPilhaImp<String> obj = null;
 
-		obj = new MinhaPilhaImp<String>();
+		obj = criarMinhaPilha();
 		try {
 			obj.pop();
 			fail();

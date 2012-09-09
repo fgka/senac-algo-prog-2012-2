@@ -116,6 +116,17 @@ public class MinhaListaImpTest {
 		Assert.assertEquals(quantidade, tamanho);
 	}
 
+	@Test
+	public void testTamanhoListaVazia() {
+		
+		MinhaListaImp<String> obj = null;
+		int tamanho = 0;
+		
+		obj = criarMinhaListaImp();
+		tamanho = obj.tamanho();
+		Assert.assertEquals(0, tamanho);
+	}
+
 	@SuppressWarnings("unchecked")
 	private <T> void adicionarElementos(
 			MinhaListaImp<T> lista, 

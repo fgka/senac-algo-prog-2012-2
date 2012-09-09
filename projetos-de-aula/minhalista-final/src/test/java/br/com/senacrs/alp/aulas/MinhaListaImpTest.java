@@ -25,16 +25,6 @@ public class MinhaListaImpTest {
 	}
 
 	@Test
-	public void testGetInicio() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetInicio() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testSufixar() {
 		fail("Not yet implemented");
 	}

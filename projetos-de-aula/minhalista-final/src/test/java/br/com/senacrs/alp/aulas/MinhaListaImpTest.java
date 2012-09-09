@@ -191,15 +191,11 @@ public class MinhaListaImpTest {
 	public void testInserir() {
 		
 		MinhaListaImp<String> obj = null;
-		int quantidade = 0;
-		String prefixo = null;
 		String valor = null;
 		int posicao = 0;
 		String resultado = null;
 
-		prefixo = "string-";
-		quantidade = 10;		
-		obj = criarMinhaListaImpDeStringComPrefixo(prefixo, quantidade);
+		obj = criarMinhaListaImpDeStringComPrefixo("string-", 10);
 		valor = "novo valor";
 		posicao = 3;
 		obj.inserir(posicao, valor);
@@ -239,20 +235,17 @@ public class MinhaListaImpTest {
 
 	@Test
 	public void testInserirNaUltimaPosicao() {
-		
-		
+				
 		MinhaListaImp<String> obj = null;
 		int quantidade = 0;
-		String prefixo = null;
 		String valor = null;
 		int posicao = 0;
 		String resultado = null;
 
-		prefixo = "string-";
-		quantidade = 10;		
-		obj = criarMinhaListaImpDeStringComPrefixo(prefixo, quantidade);
+		quantidade = 10;
+		obj = criarMinhaListaImpDeStringComPrefixo("string-", quantidade);
 		valor = "novo valor";
-		posicao = 10;
+		posicao = quantidade;
 		obj.inserir(posicao, valor);
 		resultado = buscarValorEmPosicao(obj, posicao);
 		Assert.assertEquals(valor, resultado);

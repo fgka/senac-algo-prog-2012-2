@@ -173,6 +173,20 @@ public class MinhaListaImpTest {
 		}
 	}
 
+	@Test
+	public void testBuscarPosicaoNegativa() {
+		
+		MinhaListaImp<String> obj = null;
+		
+		obj = criarMinhaListaImp();
+		try {
+			obj.buscar(-1);
+			fail();
+		} catch (IndexOutOfBoundsException e) {
+			assertTrue(true);
+		}
+	}
+
 	private MinhaListaImp<String> criarMinhaListaImpDeStringComPrefixo(
 			String prefixo, int quantidade) {
 		

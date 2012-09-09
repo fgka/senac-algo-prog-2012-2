@@ -213,6 +213,20 @@ public class MinhaListaImpTest {
 	}
 
 	@Test
+	public void testBuscarPosicaoAlemDoTamanho() {
+		
+		MinhaListaImp<String> obj = null;
+		
+		obj = criarMinhaListaImp();
+		try {
+			obj.buscar(0);
+			fail();
+		} catch (IndexOutOfBoundsException e) {
+			assertTrue(true);
+		}
+	}
+
+	@Test
 	public void testInserir() {
 		
 		MinhaListaImp<String> obj = null;

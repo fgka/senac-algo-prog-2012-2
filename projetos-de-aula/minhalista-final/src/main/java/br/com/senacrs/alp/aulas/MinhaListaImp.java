@@ -58,7 +58,12 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 
 	public Tipo buscar(int posicao) {
 		
-		Nodo<Tipo> nodo = buscarNodo(posicao + 1);
+		Nodo<Tipo> nodo = null;
+		
+		if (posicao < 0) {
+			throw new IndexOutOfBoundsException();
+		}
+		nodo = buscarNodo(posicao + 1);
 		
 		return nodo.getValor();
 	}

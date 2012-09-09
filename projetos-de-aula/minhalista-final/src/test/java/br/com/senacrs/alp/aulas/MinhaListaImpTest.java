@@ -309,6 +309,24 @@ public class MinhaListaImpTest {
 	}
 
 	@Test
+	public void testInserirPosicaoAlemDoTamanho() {
+		
+		MinhaListaImp<String> obj = null;
+		String valor = null;
+		int posicao = 0;
+
+		obj = criarMinhaListaImpDeStringComPrefixo("string-", 10);
+		valor = "novo valor";
+		posicao = 11;
+		try {
+			obj.inserir(posicao, valor);
+			fail();
+		} catch (IndexOutOfBoundsException e) {
+			assertTrue(true);
+		}
+	}
+
+	@Test
 	public void testRemoverDevolveValorCorreto() {
 				
 		MinhaListaImp<String> obj = null;

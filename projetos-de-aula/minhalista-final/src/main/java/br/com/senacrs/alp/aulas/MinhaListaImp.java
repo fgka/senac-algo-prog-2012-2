@@ -58,7 +58,7 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 
 	public Tipo buscar(int posicao) {
 		
-		Nodo<Tipo> nodo = buscarNodo(posicao);
+		Nodo<Tipo> nodo = buscarNodo(posicao + 1);
 		
 		return nodo.getValor();
 	}

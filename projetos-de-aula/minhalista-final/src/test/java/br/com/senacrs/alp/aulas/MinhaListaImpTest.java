@@ -69,7 +69,28 @@ public class MinhaListaImpTest {
 
 	@Test
 	public void testPrefixar() {
-		fail("Not yet implemented");
+				
+		MinhaListaImp<String> obj = null;
+		String prefixo = null;
+		String prefixoReal = null;
+		
+		obj = criarMinhaListaImp();
+		prefixo = "prefixo";
+		obj.prefixar(prefixo);
+		prefixoReal = buscarPrefixo(obj);
+		Assert.assertEquals(prefixo, prefixoReal);
+	}
+
+	private <T> T buscarPrefixo(MinhaListaImp<T> obj) {
+		
+		T resultado = null;
+		Nodo<T> nodo = null;
+		
+		nodo = obj.getInicio();
+		nodo = nodo.getProximo();
+		resultado = nodo.getValor();
+
+		return resultado;
 	}
 
 	@Test

@@ -87,7 +87,7 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 	public int tamanho() {
 		
 		Nodo<Tipo> nodo = getInicio();
-		int resultado = 1;
+		int resultado = 0;
 
 		while (nodo.getProximo() != null) {
 			nodo = nodo.getProximo();

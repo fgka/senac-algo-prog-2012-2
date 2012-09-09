@@ -2,9 +2,9 @@ package br.com.senacrs.alp.aulas;
 
 import java.util.EmptyStackException;
 
-public abstract class AbstractMinhaPilhaImp<T> implements MinhaPilha<T> {
+public abstract class AbstractMinhaPilha<T> implements MinhaPilha<T> {
 
-	protected AbstractMinhaPilhaImp() {
+	protected AbstractMinhaPilha() {
 
 		super();
 	}

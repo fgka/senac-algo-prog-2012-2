@@ -1,13 +1,15 @@
 package br.com.senacrs.alp.aulas;
 
+import java.util.EmptyStackException;
+
 public class MinhaPilhaImp<T> implements MinhaPilha<T> {
-	
+
 	private MinhaLista<T> lista = null;
-	
+
 	public MinhaPilhaImp() {
-		
+
 		super();
-		
+
 		lista = new MinhaListaImp<T>();
 	}
 
@@ -15,17 +17,21 @@ public class MinhaPilhaImp<T> implements MinhaPilha<T> {
 
 		this.lista.prefixar(valor);
 	}
-	
+
 	protected MinhaLista<T> getMinhaLista() {
-		
+
 		return this.lista;
 	}
 
 	public T pop() {
-		
+
 		T resultado = null;
-		
-		resultado = this.lista.remover(0);
+
+		try {
+			resultado = this.lista.remover(0);
+		} catch (IndexOutOfBoundsException e) {
+			throw new EmptyStackException();
+		}
 
 		return resultado;
 	}

@@ -394,4 +394,18 @@ public class MinhaListaImpTest {
 			assertTrue(true);
 		}
 	}
+
+	@Test
+	public void testRemoverPosicaoAlemDoTamanho() {
+				
+		MinhaListaImp<String> obj = null;
+
+		obj = criarMinhaListaImp();
+		try {
+			obj.remover(0);
+			fail();
+		} catch (IndexOutOfBoundsException e) {
+			assertTrue(true);
+		}
+	}
 }

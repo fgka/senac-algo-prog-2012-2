@@ -1,6 +1,7 @@
 package br.com.senacrs.alp.aulas;
 
 import static org.junit.Assert.*;
+import junit.framework.Assert;
 
 import org.junit.After;
 import org.junit.Before;
@@ -20,8 +21,13 @@ public class MinhaListaImpTest {
 	public void testMinhaListaImp() {
 		
 		MinhaListaImp<Object> obj = null;
-		
-		obj = new MinhaListaImp<Object>();
+	
+		try {
+			obj = new MinhaListaImp<Object>();
+		} catch (Exception e) {
+			fail("Deve funcionar");
+		}
+		Assert.assertNotNull(obj);
 	}
 
 	@Test

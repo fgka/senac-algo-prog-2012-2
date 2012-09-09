@@ -89,10 +89,14 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 
 	public Tipo remover(int posicao) {
 		
-		Nodo<Tipo> anterior = buscarNodo(posicao);
-		Nodo<Tipo> nodo = anterior.getProximo();
-		Nodo<Tipo> proximo = nodo.getProximo();
+		Nodo<Tipo> anterior = null;
+		Nodo<Tipo> nodo = null;
+		Nodo<Tipo> proximo = null;
 		
+		verificarPosicao(posicao);
+		anterior = buscarNodo(posicao);
+		nodo = anterior.getProximo();
+		proximo = nodo.getProximo();
 		anterior.setProximo(proximo);
 		
 		return nodo.getValor();

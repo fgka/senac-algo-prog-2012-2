@@ -60,20 +60,29 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 		
 		Nodo<Tipo> nodo = null;
 		
-		if (posicao < 0) {
-			throw new IndexOutOfBoundsException();
-		}
+		verificarPosicao(posicao);
 		nodo = buscarNodo(posicao + 1);
 		
 		return nodo.getValor();
 	}
 
+	private void verificarPosicao(int posicao) {
+
+		if (posicao < 0) {
+			throw new IndexOutOfBoundsException();
+		}
+	}
+
 	public void inserir(int posicao, Tipo valor) {
 
-		Nodo<Tipo> anterior = buscarNodo(posicao);
-		Nodo<Tipo> proximo = anterior.getProximo();
-		Nodo<Tipo> nodo = new Nodo<Tipo>(valor);
+		Nodo<Tipo> anterior = null;
+		Nodo<Tipo> proximo = null;
+		Nodo<Tipo> nodo = null;
 		
+		verificarPosicao(posicao);
+		anterior = buscarNodo(posicao);
+		proximo = anterior.getProximo();
+		nodo = new Nodo<Tipo>(valor);
 		anterior.setProximo(nodo);
 		nodo.setProximo(proximo);		
 	}

@@ -65,7 +65,7 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 
 	public void inserir(int posicao, Tipo valor) {
 
-		Nodo<Tipo> anterior = buscarNodo(posicao - 1);
+		Nodo<Tipo> anterior = buscarNodo(posicao);
 		Nodo<Tipo> proximo = anterior.getProximo();
 		Nodo<Tipo> nodo = new Nodo<Tipo>(valor);
 		

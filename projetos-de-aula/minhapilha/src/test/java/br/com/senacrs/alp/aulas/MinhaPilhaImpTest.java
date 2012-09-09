@@ -55,9 +55,50 @@ public class MinhaPilhaImpTest {
 		return resultado;
 	}
 
+
 	@Test
 	public void testPop() {
-		fail("Not yet implemented");
+		
+		MinhaPilhaImp<String> obj = null;
+		String prefixo = null;
+		int quantidade = 0;
+		String resultado = null;
+		String esperado = null;
+
+		prefixo = "string-";
+		quantidade = 10;
+		obj = criarPilhaStringComElementos(prefixo, quantidade);
+		for (int i = quantidade - 1; i >= 0; i--) {
+			esperado = elementoParaIndice(prefixo, i);
+			resultado = obj.pop();
+			Assert.assertEquals(esperado, resultado);
+		}
+	}
+
+	private MinhaPilhaImp<String> criarPilhaStringComElementos(String prefixo,
+			int quantidade) {
+		
+		MinhaPilhaImp<String> resultado = null;
+		MinhaLista<String> lista = null;
+		String valor = null;
+		
+		resultado = new MinhaPilhaImp<String>();
+		lista = resultado.getMinhaLista();
+		for (int i = 0; i < quantidade; i++) {
+			valor = elementoParaIndice(prefixo, i);
+			lista.prefixar(valor);
+		}
+		
+		return resultado;
+	}
+
+	private String elementoParaIndice(String prefixo, int indice) {
+		
+		String resultado = null;
+		
+		resultado = prefixo + String.valueOf(indice);
+		
+		return resultado;
 	}
 
 }

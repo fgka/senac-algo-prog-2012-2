@@ -18,7 +18,7 @@ public class MinhaPilhaImpTest {
 	}
 
 	@Test
-	public void testGetMinhaLista() {
+	public void testMinhaPilhaImp() {
 		
 		MinhaPilhaImp<Object> obj = null;
 		
@@ -40,7 +40,7 @@ public class MinhaPilhaImpTest {
 	}
 
 	@Test
-	public void testMinhaPilhaImp() {
+	public void testGetMinhaLista() {
 		fail("Not yet implemented");
 	}
 

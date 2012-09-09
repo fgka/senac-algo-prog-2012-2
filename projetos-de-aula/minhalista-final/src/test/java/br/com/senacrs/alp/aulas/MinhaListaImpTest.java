@@ -189,7 +189,36 @@ public class MinhaListaImpTest {
 
 	@Test
 	public void testInserir() {
-		fail("Not yet implemented");
+		
+		MinhaListaImp<String> obj = null;
+		int quantidade = 0;
+		String prefixo = null;
+		String valor = null;
+		int posicao = 0;
+		String resultado = null;
+
+		prefixo = "string-";
+		quantidade = 10;		
+		obj = criarMinhaListaImpDeStringComPrefixo(prefixo, quantidade);
+		valor = "novo valor";
+		posicao = 3;
+		obj.inserir(posicao, valor);
+		resultado = buscarValorEmPosicao(obj, posicao);
+		Assert.assertEquals(valor, resultado);
+	}
+
+	private String buscarValorEmPosicao(MinhaListaImp<String> obj, int posicao) {
+		
+		String resultado = null;
+		Nodo<String> nodo = null;
+
+		nodo = obj.getInicio();
+		for (int i = 0; i <= posicao; i++) {
+			nodo = nodo.getProximo();
+		}
+		resultado = nodo.getValor();
+		
+		return resultado;
 	}
 
 	@Test

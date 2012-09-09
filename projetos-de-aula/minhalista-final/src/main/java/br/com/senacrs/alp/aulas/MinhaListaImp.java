@@ -111,7 +111,7 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 		
 		int posicaoMaxima = 0;
 
-		posicaoMaxima = this.tamanho() + 1;
+		posicaoMaxima = this.tamanho();
 		verificarPosicao(posicao, posicaoMaxima);
 	}
 

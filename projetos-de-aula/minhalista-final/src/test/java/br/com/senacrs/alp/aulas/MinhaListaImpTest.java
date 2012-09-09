@@ -272,7 +272,35 @@ public class MinhaListaImpTest {
 
 	@Test
 	public void testRemoverValorRemovido() {
+				
+		MinhaListaImp<String> obj = null;
+		int quantidade = 0;
+		int posicao = 0;
+		String valor = null;
+		String prefixo = null;
+		boolean encontrado = false;
 		
-		fail("falta implementar");
+		prefixo = "string-";
+		quantidade = 10;
+		obj = criarMinhaListaImpDeStringComPrefixo(prefixo, quantidade);
+		posicao = 7;
+		valor = valorStringPrefixadoParaIndice(prefixo, posicao);
+		obj.remover(posicao);
+		encontrado = existeValorNaLista(obj, valor);
+		Assert.assertFalse(encontrado);
+	}
+
+	private <T> boolean existeValorNaLista(MinhaListaImp<T> lista, T valor) {
+		
+		boolean resultado = false;
+		Nodo<T> nodo = null;
+		
+		nodo = lista.getInicio();
+		while (!resultado && (nodo.getProximo() != null)) {
+			resultado = valor.equals(nodo.getValor());
+			nodo = nodo.getProximo();
+		}
+
+		return resultado;
 	}
 }

@@ -56,15 +56,24 @@ public class MinhaListaImpTest {
 	private <T> T buscarSufixo(MinhaListaImp<T> obj) {
 		
 		T resultado = null;
+		Nodo<T> nodoSufixo = null;
+		
+		nodoSufixo = buscarNodoSufixo(obj);
+		resultado = nodoSufixo.getValor();
+		
+		return resultado;
+	}
+
+	private <T> Nodo<T> buscarNodoSufixo(MinhaListaImp<T> obj) {
+		
 		Nodo<T> nodo = null;
 
 		nodo = obj.getInicio();
 		while (nodo.getProximo() != null) {
 			nodo = nodo.getProximo();
 		}
-		resultado = nodo.getValor();
 		
-		return resultado;
+		return nodo;
 	}
 
 	@Test
@@ -110,7 +119,31 @@ public class MinhaListaImpTest {
 
 	@Test
 	public void testTamanho() {
-		fail("Not yet implemented");
+		
+		MinhaListaImp<String> obj = null;
+		int quantidade = 0;
+		int tamanho = 0;
+		
+		obj = criarMinhaListaImp();
+		quantidade = 10;		 
+		adicionarElementos(obj, quantidade);
+		tamanho = obj.tamanho();
+		Assert.assertEquals(quantidade, tamanho);
 	}
 
+	private <T> void adicionarElementos(
+			MinhaListaImp<T> obj, 
+			int quantidade) {
+		
+		Nodo<T> ultimoNodo = null;
+		Nodo<T> novoNodo = null;
+		
+		
+		ultimoNodo = buscarNodoSufixo(obj);
+		for (int i = 0; i < quantidade; i++) {
+			novoNodo = new Nodo<T>(null);
+			ultimoNodo.setProximo(novoNodo);
+			ultimoNodo = novoNodo;
+		}
+	}
 }

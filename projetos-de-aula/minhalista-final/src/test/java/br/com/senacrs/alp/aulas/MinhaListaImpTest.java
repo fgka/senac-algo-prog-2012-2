@@ -148,23 +148,42 @@ public class MinhaListaImpTest {
 		
 		MinhaListaImp<String> obj = null;
 		int quantidade = 0;
+		String esperado = null;
+		String resultado = null;
+		String prefixo = null;
 		
-		quantidade = 10;		 
-		obj = criarMinhaListaImpDeStringComPrefixo("string-", quantidade);
-		
-		fail("Not yet implemented");
+		prefixo = "string-";
+		quantidade = 10;		
+		obj = criarMinhaListaImpDeStringComPrefixo(prefixo, quantidade);
+		for (int i = 0; i < quantidade; i++) {
+			esperado = valorStringPrefixadoParaIndice(prefixo, i);
+			resultado = obj.buscar(i);
+			Assert.assertEquals(esperado, resultado);
+		}
 	}
 
 	private MinhaListaImp<String> criarMinhaListaImpDeStringComPrefixo(
-			String string, int quantidade) {
+			String prefixo, int quantidade) {
 		
 		MinhaListaImp<String> resultado = null;
+		String[] valores = null;
 
 		resultado = criarMinhaListaImp();
+		valores = new String[quantidade]; 
 		for (int i = 0; i < quantidade; i++) {
-			//usar adicionar Elementos
+			valores[i] = valorStringPrefixadoParaIndice(prefixo, i);
 		}
+		encadearValores(resultado, valores);
 
+		return resultado;
+	}
+
+	private String valorStringPrefixadoParaIndice(String prefixo, int indice) {
+		
+		String resultado = null;
+		
+		resultado = prefixo + String.valueOf(indice);
+		
 		return resultado;
 	}
 

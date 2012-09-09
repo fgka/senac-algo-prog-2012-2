@@ -2,11 +2,11 @@ package br.com.senacrs.alp.aulas;
 
 import java.util.EmptyStackException;
 
-public class MinhaPilhaImp<T> implements MinhaPilha<T> {
+public abstract class MinhaPilhaImp<T> implements MinhaPilha<T> {
 
 	private MinhaLista<T> lista = null;
 
-	public MinhaPilhaImp() {
+	protected MinhaPilhaImp() {
 
 		super();
 

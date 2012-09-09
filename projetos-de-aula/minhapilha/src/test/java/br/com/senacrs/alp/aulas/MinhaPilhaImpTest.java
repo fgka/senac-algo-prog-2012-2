@@ -37,7 +37,7 @@ public class MinhaPilhaImpTest {
 		
 		MinhaPilhaImp<T> resultado = null;
 		
-		resultado = new MinhaPilhaImp<T>();
+		resultado = new MinhaPilhaImp<T>(){};
 		
 		return resultado;
 	}

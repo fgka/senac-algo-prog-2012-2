@@ -222,6 +222,22 @@ public class MinhaListaImpTest {
 	}
 
 	@Test
+	public void testInserirNaPrimeiraPosicaoComListaVazia() {
+		
+		MinhaListaImp<String> obj = null;
+		String valor = null;
+		int posicao = 0;
+		String resultado = null;
+
+		obj = criarMinhaListaImp();
+		valor = "novo valor";
+		posicao = 0;
+		obj.inserir(posicao, valor);
+		resultado = buscarValorEmPosicao(obj, posicao);
+		Assert.assertEquals(valor, resultado);
+	}
+
+	@Test
 	public void testRemover() {
 		fail("Not yet implemented");
 	}

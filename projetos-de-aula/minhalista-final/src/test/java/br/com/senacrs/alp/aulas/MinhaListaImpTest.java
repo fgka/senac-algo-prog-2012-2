@@ -238,6 +238,27 @@ public class MinhaListaImpTest {
 	}
 
 	@Test
+	public void testInserirNaUltimaPosicao() {
+		
+		
+		MinhaListaImp<String> obj = null;
+		int quantidade = 0;
+		String prefixo = null;
+		String valor = null;
+		int posicao = 0;
+		String resultado = null;
+
+		prefixo = "string-";
+		quantidade = 10;		
+		obj = criarMinhaListaImpDeStringComPrefixo(prefixo, quantidade);
+		valor = "novo valor";
+		posicao = 10;
+		obj.inserir(posicao, valor);
+		resultado = buscarValorEmPosicao(obj, posicao);
+		Assert.assertEquals(valor, resultado);
+	}
+
+	@Test
 	public void testRemover() {
 		fail("Not yet implemented");
 	}

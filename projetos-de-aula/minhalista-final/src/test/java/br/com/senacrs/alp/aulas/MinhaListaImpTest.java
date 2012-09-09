@@ -53,22 +53,22 @@ public class MinhaListaImpTest {
 		return obj;
 	}
 
-	private <T> T buscarSufixo(MinhaListaImp<T> obj) {
+	private <T> T buscarSufixo(MinhaListaImp<T> lista) {
 		
 		T resultado = null;
 		Nodo<T> nodoSufixo = null;
 		
-		nodoSufixo = buscarNodoSufixo(obj);
+		nodoSufixo = buscarNodoSufixo(lista);
 		resultado = nodoSufixo.getValor();
 		
 		return resultado;
 	}
 
-	private <T> Nodo<T> buscarNodoSufixo(MinhaListaImp<T> obj) {
+	private <T> Nodo<T> buscarNodoSufixo(MinhaListaImp<T> lista) {
 		
 		Nodo<T> nodo = null;
 
-		nodo = obj.getInicio();
+		nodo = lista.getInicio();
 		while (nodo.getProximo() != null) {
 			nodo = nodo.getProximo();
 		}
@@ -90,12 +90,12 @@ public class MinhaListaImpTest {
 		Assert.assertEquals(prefixo, prefixoReal);
 	}
 
-	private <T> T buscarPrefixo(MinhaListaImp<T> obj) {
+	private <T> T buscarPrefixo(MinhaListaImp<T> lista) {
 		
 		T resultado = null;
 		Nodo<T> nodo = null;
 		
-		nodo = obj.getInicio();
+		nodo = lista.getInicio();
 		nodo = nodo.getProximo();
 		resultado = nodo.getValor();
 
@@ -118,7 +118,7 @@ public class MinhaListaImpTest {
 
 	@SuppressWarnings("unchecked")
 	private <T> void adicionarElementos(
-			MinhaListaImp<T> obj, 
+			MinhaListaImp<T> lista, 
 			int quantidade) {
 
 		T[] valores = null;
@@ -127,15 +127,15 @@ public class MinhaListaImpTest {
 		for (int i = 0; i < quantidade; i++) {
 			valores[i] = null;
 		}
-		encadearValores(obj, valores);
+		encadearValores(lista, valores);
 	}
 	
-	private <T> void encadearValores(MinhaListaImp<T> obj, T[] valores) {
+	private <T> void encadearValores(MinhaListaImp<T> lista, T[] valores) {
 				
 		Nodo<T> ultimoNodo = null;
 		Nodo<T> novoNodo = null;
 		
-		ultimoNodo = buscarNodoSufixo(obj);
+		ultimoNodo = buscarNodoSufixo(lista);
 		for (T valor : valores) {
 			novoNodo = new Nodo<T>(valor);
 			ultimoNodo.setProximo(novoNodo);
@@ -203,12 +203,12 @@ public class MinhaListaImpTest {
 		Assert.assertEquals(valor, resultado);
 	}
 
-	private String buscarValorEmPosicao(MinhaListaImp<String> obj, int posicao) {
+	private String buscarValorEmPosicao(MinhaListaImp<String> lista, int posicao) {
 		
 		String resultado = null;
 		Nodo<String> nodo = null;
 
-		nodo = obj.getInicio();
+		nodo = lista.getInicio();
 		for (int i = 0; i <= posicao; i++) {
 			nodo = nodo.getProximo();
 		}

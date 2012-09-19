@@ -1,5 +1,6 @@
 package br.com.senacrs.alp.aulas;
 
+
 public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 	
 	private Nodo<Tipo> inicio = null;
@@ -26,7 +27,7 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 	private Nodo<Tipo> buscarUltimoNodo() {
 		
 		int tamanho = tamanho();
-		Nodo<Tipo> resultado = buscarNodo(tamanho - 1);
+		Nodo<Tipo> resultado = buscarNodo(tamanho);
 		
 		return resultado;
 	}
@@ -140,6 +141,22 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 			resultado++;
 		}
 		
+		return resultado;
+	}
+	
+	@Override
+	public String toString() {
+		
+		String resultado = null;
+		Nodo<Tipo> nodo = null;
+		
+		resultado = this.getClass().getSimpleName() +  ":";
+		nodo = this.inicio;
+		while (nodo.getProximo() != null) {
+			nodo = nodo.getProximo();
+			resultado += nodo;
+		}
+
 		return resultado;
 	}
 

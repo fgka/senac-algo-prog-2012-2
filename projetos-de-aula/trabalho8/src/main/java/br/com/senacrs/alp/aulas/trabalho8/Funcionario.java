@@ -1,4 +1,4 @@
-package br.com.senacrs.alp.aulas.trabalho5;
+package br.com.senacrs.alp.aulas.trabalho8;
 
 public interface Funcionario {
 	

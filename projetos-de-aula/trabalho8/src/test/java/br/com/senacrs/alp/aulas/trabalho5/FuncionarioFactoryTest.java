@@ -10,8 +10,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.senacrs.alp.aulas.trabalho5.Funcionario;
-import br.com.senacrs.alp.aulas.trabalho5.FuncionarioFactory;
+import br.com.senacrs.alp.aulas.trabalho8.Funcionario;
+import br.com.senacrs.alp.aulas.trabalho8.FuncionarioFactory;
 
 public class FuncionarioFactoryTest {
 

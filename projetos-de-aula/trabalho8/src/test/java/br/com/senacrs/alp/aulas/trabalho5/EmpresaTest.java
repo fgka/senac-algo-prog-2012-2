@@ -9,9 +9,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.senacrs.alp.aulas.trabalho5.Empresa;
-import br.com.senacrs.alp.aulas.trabalho5.Funcionario;
-import br.com.senacrs.alp.aulas.trabalho5.FuncionarioFactory;
+import br.com.senacrs.alp.aulas.trabalho8.Empresa;
+import br.com.senacrs.alp.aulas.trabalho8.Funcionario;
+import br.com.senacrs.alp.aulas.trabalho8.FuncionarioFactory;
 
 public class EmpresaTest {
 

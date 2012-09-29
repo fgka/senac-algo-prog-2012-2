@@ -1,4 +1,4 @@
-package br.com.senacrs.alp.aulas.trabalho5;
+package br.com.senacrs.alp.aulas.exercicio1;
 
 public class Funcionario extends Pessoa {
 

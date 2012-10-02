@@ -1,4 +1,4 @@
-package br.com.senacrs.alp.aulas.trabalho5;
+package br.com.senacrs.alp.aulas.trabalho9;
 
 import static org.junit.Assert.*;
 
@@ -9,11 +9,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.senacrs.alp.aulas.trabalho8.Empresa;
-import br.com.senacrs.alp.aulas.trabalho8.EmpresaImpl;
-import br.com.senacrs.alp.aulas.trabalho8.Funcionario;
-import br.com.senacrs.alp.aulas.trabalho8.FuncionarioFactory;
-import br.com.senacrs.alp.aulas.trabalho8.FuncionarioFactoryImpl;
+import br.com.senacrs.alp.aulas.trabalho9.Empresa;
+import br.com.senacrs.alp.aulas.trabalho9.EmpresaImpl;
+import br.com.senacrs.alp.aulas.trabalho9.Funcionario;
+import br.com.senacrs.alp.aulas.trabalho9.FuncionarioFactory;
+import br.com.senacrs.alp.aulas.trabalho9.FuncionarioFactoryImpl;
 
 public class EmpresaTest {
 

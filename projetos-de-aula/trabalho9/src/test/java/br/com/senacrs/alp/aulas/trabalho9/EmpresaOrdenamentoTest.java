@@ -41,6 +41,8 @@ public class EmpresaOrdenamentoTest {
 		List<Funcionario> resultado = null;
 		int salarioAnt = 0;
 		int salarioAtual = 0;
+		boolean condicao = false;
+		String msg;
 		
 		for (int i = 0; i < qtd; i++) {			
 			this.adicionarFuncionariosAleatorios(qtd);
@@ -50,7 +52,9 @@ public class EmpresaOrdenamentoTest {
 		salarioAnt = -1;
 		for (Funcionario f : resultado) {
 			salarioAtual = f.getSalario();
-			Assert.assertFalse(salarioAtual < salarioAnt);
+			condicao = salarioAtual < salarioAnt;
+			msg = String.format("%d < %d : %s", salarioAtual, salarioAnt, String.valueOf(resultado));
+			Assert.assertFalse(msg, condicao);
 			salarioAnt = salarioAtual;
 		}
 	}
@@ -102,16 +106,20 @@ public class EmpresaOrdenamentoTest {
 		List<Funcionario> resultado = null;
 		int salarioAnt = 0;
 		int salarioAtual = 0;
+		boolean condicao = false;
+		String msg = null;
 		
 		for (int i = 0; i < qtd; i++) {			
 			this.adicionarFuncionariosAleatorios(qtd);
 		}
 		resultado = this.empresa.ordemDecrescenteSalario();
 		Assert.assertEquals(qtd, resultado.size());
-		salarioAnt = -1;
+		salarioAnt = 1000;
 		for (Funcionario f : resultado) {
 			salarioAtual = f.getSalario();
-			Assert.assertFalse(salarioAtual > salarioAnt);
+			condicao = salarioAtual > salarioAnt;
+			msg = String.format("%d > %d : %s", salarioAtual, salarioAnt, String.valueOf(resultado));
+			Assert.assertFalse(msg, condicao);
 			salarioAnt = salarioAtual;
 		}
 	}
@@ -123,6 +131,8 @@ public class EmpresaOrdenamentoTest {
 		List<Funcionario> resultado = null;
 		String nomeAnt = null;
 		String nomeAtual = null;
+		boolean condicao = false;
+		String msg = null;
 		
 		for (int i = 0; i < qtd; i++) {			
 			this.adicionarFuncionariosAleatorios(qtd);
@@ -132,7 +142,9 @@ public class EmpresaOrdenamentoTest {
 		nomeAnt = "";
 		for (Funcionario f : resultado) {
 			nomeAtual = f.getNome();
-			Assert.assertFalse(nomeAtual.compareTo(nomeAnt) > 0);
+			condicao = nomeAnt.compareTo(nomeAtual) > 0;
+			msg = String.format("%s > %s : %s", nomeAtual, nomeAnt, String.valueOf(resultado));			
+			Assert.assertFalse(msg, condicao);
 			nomeAnt = nomeAtual;
 		}
 	}

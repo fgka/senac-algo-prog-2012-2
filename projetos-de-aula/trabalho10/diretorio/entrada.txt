@@ -1,0 +1,6 @@
+Este e o arquivo de entrada e deve
+ser utilizado nos testes
+Verifique que voce nao apagou o mesmo
+
+Eu consigo ler o arquivo
+Eu consigo escrever no arquivo

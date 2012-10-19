@@ -12,24 +12,30 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class GerenciadorDeArquivosTest {
-	
-	private final static String DIRETORIO_ENTRADA = System.getProperty("user.dir") + File.separatorChar
-			+ "diretorio" + File.separatorChar;
+
+	private final static String DIRETORIO_ENTRADA = System
+			.getProperty("user.dir")
+			+ File.separatorChar
+			+ "diretorio"
+			+ File.separatorChar;
 	private final static String NOME_ARQUIVO_ENTRADA = "entrada.txt";
 	private final static String NOME_ARQUIVO_SAIDA = "saida.txt";
-	private final static String ARQUIVO_ENTRADA = DIRETORIO_ENTRADA + NOME_ARQUIVO_ENTRADA;
-	private final static String ARQUIVO_SAIDA = DIRETORIO_ENTRADA + NOME_ARQUIVO_SAIDA;
+	private final static String ARQUIVO_ENTRADA = DIRETORIO_ENTRADA
+			+ NOME_ARQUIVO_ENTRADA;
+	private final static String ARQUIVO_SAIDA = DIRETORIO_ENTRADA
+			+ NOME_ARQUIVO_SAIDA;
 	private final static String LIDO = "ler";
 	private final static String RETORNADO = "manipular";
 	private final static String[] CONTEUDO = new String[] {
-		"Este e o arquivo de entrada e deve", //0
-		"ser utilizado nos testes", //1
-		"Verifique que voce nao apagou o mesmo", //2
-		"", //3
-		"Eu consigo ler o arquivo", //4
-		"Eu consigo escrever no arquivo", //5
-	};	
-	private static String SUBISTITUICAO = "Eu consigo " + RETORNADO + " o arquivo";
+			"Este e o arquivo de entrada e deve", // 0
+			"ser utilizado nos testes", // 1
+			"Verifique que voce nao apagou o mesmo", // 2
+			"", // 3
+			"Eu consigo ler o arquivo", // 4
+			"Eu consigo escrever no arquivo", // 5
+	};
+	private static String SUBISTITUICAO = "Eu consigo " + RETORNADO
+			+ " o arquivo";
 
 	@Before
 	public void setUp() throws Exception {
@@ -41,7 +47,7 @@ public class GerenciadorDeArquivosTest {
 
 	@Test
 	public void testCriarNulo() {
-		
+
 		try {
 			criarGerenciadoDeArquivo(null);
 			fail("Deveria ter abortado");
@@ -51,13 +57,13 @@ public class GerenciadorDeArquivosTest {
 	}
 
 	private GerenciadorDeArquivo criarGerenciadoDeArquivo(String arquivo) {
-		
+
 		return new GerenciadorDeArquivo(arquivo);
 	}
 
 	@Test
 	public void testCriarDiretorio() {
-		
+
 		try {
 			criarGerenciadoDeArquivo(DIRETORIO_ENTRADA);
 			fail("Deveria ter abortado");
@@ -68,15 +74,15 @@ public class GerenciadorDeArquivosTest {
 
 	@Test
 	public void testCriarArquivoValido() {
-		
+
 		criarGerenciadoDeArquivo(ARQUIVO_ENTRADA);
 	}
 
 	@Test
 	public void testLerArquivoInexistente() {
-						
+
 		GerenciadorDeArquivo obj = null;
-				
+
 		try {
 			obj = criarGerenciadoDeArquivo(ARQUIVO_SAIDA);
 			obj.lerArquivo();
@@ -88,11 +94,11 @@ public class GerenciadorDeArquivosTest {
 
 	@Test
 	public void testLerArquivo() {
-						
+
 		GerenciadorDeArquivo obj = null;
 		String[] resultado = null;
 		String msg = null;
-				
+
 		obj = criarGerenciadoDeArquivo(ARQUIVO_ENTRADA);
 		resultado = obj.lerArquivo();
 		msg = "Resultado :" + Arrays.toString(resultado);
@@ -102,9 +108,9 @@ public class GerenciadorDeArquivosTest {
 
 	@Test
 	public void testLerArquivoComSubstituicaoInexistente() {
-						
+
 		GerenciadorDeArquivo obj = null;
-				
+
 		try {
 			obj = criarGerenciadoDeArquivo(ARQUIVO_SAIDA);
 			obj.lerArquivoComSubstituicao(LIDO, RETORNADO);
@@ -116,12 +122,12 @@ public class GerenciadorDeArquivosTest {
 
 	@Test
 	public void testLerArquivoComSubstituicao() {
-						
+
 		GerenciadorDeArquivo obj = null;
 		String[] resultado = null;
 		String[] esperado = null;
 		String msg = null;
-				
+
 		obj = criarGerenciadoDeArquivo(ARQUIVO_ENTRADA);
 		resultado = obj.lerArquivoComSubstituicao(LIDO, RETORNADO);
 		esperado = corrigirConteudo();
@@ -139,7 +145,7 @@ public class GerenciadorDeArquivosTest {
 
 	@Test
 	public void testEscreverArquivo() {
-		
+
 		GerenciadorDeArquivo entrada = null;
 		GerenciadorDeArquivo saida = null;
 		GerenciadorDeArquivo entradaDaSaida = null;
@@ -147,7 +153,7 @@ public class GerenciadorDeArquivosTest {
 		String[] resultado = null;
 		String[] esperado = null;
 		String msg = null;
-				
+
 		entrada = criarGerenciadoDeArquivo(ARQUIVO_ENTRADA);
 		saida = criarGerenciadoDeArquivo(ARQUIVO_SAIDA);
 		conteudo = entrada.lerArquivoComSubstituicao(LIDO, RETORNADO);
@@ -159,5 +165,5 @@ public class GerenciadorDeArquivosTest {
 		msg += " Esperado :" + Arrays.toString(esperado);
 		Assert.assertTrue(msg, Arrays.deepEquals(esperado, resultado));
 	}
-	
+
 }

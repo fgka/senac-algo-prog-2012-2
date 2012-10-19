@@ -1,31 +1,28 @@
 package br.com.senacrs.alp.aulas.trabalho10;
 
 public class GerenciadorDeArquivo {
-	
-	public GerenciadorDeArquivo(String arquivo) {
+
+	public GerenciadorDeArquivo(String nomeArquivo) {
+
 		// TODO
 	}
-	
+
 	public String[] lerArquivo() {
-		
-		String[] resultado = null;
-		
-		// TODO 
-		
-		return resultado;
+
+		// TODO
+
+		return null;
 	}
-	
+
 	public String[] lerArquivoComSubstituicao(String lido, String retornado) {
-		
-		String[] resultado = null;
-		
-		// TODO 
-		
-		return resultado;
+
+		// TODO
+
+		return null;
 	}
-	
+
 	public void escreverArquivo(String[] conteudo) {
-		
+
 		// TODO
 	}
 }

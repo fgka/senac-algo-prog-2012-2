@@ -1,0 +1,2 @@
+mensagem_bom_dia = Good morning %s
+mensagem_erro = An error on module %s had happened at %d:%d   

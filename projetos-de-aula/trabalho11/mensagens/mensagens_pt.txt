@@ -1,0 +1,2 @@
+mensagem_bom_dia = Bom dia %s
+mensagem_erro =     Ocorreu um erro no módulo %s às %d:%d   

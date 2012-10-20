@@ -1,0 +1,2 @@
+chave = mensagem = outra mensagem 
+somente chave   

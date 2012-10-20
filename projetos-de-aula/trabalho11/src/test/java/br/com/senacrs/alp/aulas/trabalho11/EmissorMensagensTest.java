@@ -17,11 +17,14 @@ public class EmissorMensagensTest {
 			+ "mensagens"
 			+ File.separatorChar;
 	private final static String NOME_ARQUIVO_EN = "mensagens_en.txt";
-	private final static String NOME_ARQUIVO_PT = "mensagens_en.txt";
+	private final static String NOME_ARQUIVO_PT = "mensagens_pt.txt";
+	private final static String NOME_ARQUIVO_INCORRETO = "mensagens_incorreto.txt";
 	private final static String ARQUIVO_EN = DIRETORIO_ENTRADA
 			+ NOME_ARQUIVO_EN;
 	private final static String ARQUIVO_PT = DIRETORIO_ENTRADA
 			+ NOME_ARQUIVO_PT;
+	private final static String ARQUIVO_INCORRETO = DIRETORIO_ENTRADA
+			+ NOME_ARQUIVO_INCORRETO;
 	private final static String NOME_FULANO = "Fulano";
 	private final static String NOME_MODULO = "Modulo";
 	private final static Integer[] HORA_MINUTO = new Integer[] {10, 11};
@@ -100,6 +103,17 @@ public class EmissorMensagensTest {
 
 		try {
 			criarEmissorMensagens(NOME_ARQUIVO_PT + ".nao_existe");
+			fail("Deveria ter abortado");
+		} catch (IllegalArgumentException e) {
+			Assert.assertTrue(true);
+		}
+	}
+
+	@Test
+	public void testEmissorMensagensFormatoIncorreto() {
+
+		try {
+			criarEmissorMensagens(ARQUIVO_INCORRETO);
 			fail("Deveria ter abortado");
 		} catch (IllegalArgumentException e) {
 			Assert.assertTrue(true);

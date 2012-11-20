@@ -10,14 +10,12 @@ public class ClienteMain {
 
 		Socket client = null;
 		ManipuladorSocket obj = null;
-		String line = null;
 
 		try {
 			client = new Socket("127.0.0.1", 54321);
 			obj = new ManipuladorSocket(client);
-			obj.enviarTexto("cliente falando. escutou?");
-			line = obj.receberTexto();
-			System.out.println(line);
+			obj.enviarTexto("mensagem_bom_dia");
+			consumirTexto(obj);
 			obj.finalizar();
 		} catch (UnknownHostException e) {
 			throw new IllegalArgumentException(e);
@@ -26,6 +24,14 @@ public class ClienteMain {
 		} finally {
 			closeSocket(client);
 		}
+	}
+
+	private static void consumirTexto(ManipuladorSocket obj) {
+
+		String line = null;
+
+		line = obj.receberTexto();
+		System.out.println(line);
 	}
 
 	private static void closeSocket(Socket client) {

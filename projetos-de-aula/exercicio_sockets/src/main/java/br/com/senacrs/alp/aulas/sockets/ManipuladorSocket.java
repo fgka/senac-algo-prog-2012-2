@@ -37,7 +37,7 @@ public class ManipuladorSocket {
 		}
 	}
 
-	private BufferedWriter criarWriter() throws IOException {
+	public BufferedWriter criarWriter() throws IOException {
 
 		OutputStream out = null;
 		OutputStreamWriter osWriter = null;
@@ -61,12 +61,14 @@ public class ManipuladorSocket {
 			resultado = reader.readLine();
 		} catch (IOException e) {
 			throw new IllegalStateException(e);
+		} catch (InterruptedException e) {
+			throw new IllegalStateException(e);
 		}
 
 		return resultado;
 	}
 
-	private BufferedReader criarReader() throws IOException {
+	public BufferedReader criarReader() throws IOException, InterruptedException {
 
 		InputStream in = null;
 		InputStreamReader isReader = null;
@@ -75,6 +77,9 @@ public class ManipuladorSocket {
 			in = this.socket.getInputStream();
 			isReader = new InputStreamReader(in);
 			this.reader = new BufferedReader(isReader);
+		}
+		while (!this.reader.ready()) {
+			Thread.sleep(1000);
 		}
 
 		return this.reader;
